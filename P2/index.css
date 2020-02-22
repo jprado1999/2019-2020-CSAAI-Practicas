@@ -1,15 +1,19 @@
 button{
   background-color: yellow;
-  margin: 5px;
+  margin: 10px;
   width: 60px;
   height: 60px;
 }
 p{
   background-color: cyan;
   border: solid;
+  margin: 10px;
   padding: 15px;
   border-color: green;
 }
 body{
   border: solid;
+  background-clip: border-box;
+  background-color: red;
+
 }
