@@ -9,11 +9,12 @@ p{
   border: solid;
   margin: 10px;
   padding: 15px;
-  border-color: green;
 }
 body{
   border: solid;
-  background-clip: border-box;
-  background-color: red;
+  margin: 10px;
+}
+#color{
+  background-color: green;
 
 }
