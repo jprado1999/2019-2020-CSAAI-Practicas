@@ -1,16 +1,5 @@
 console.log("Ejecutando js...");
 
-//const test0 = document.getElementById('test0')
-//const test1 = document.getElementById('test1')
-//const test2 = document.getElementById('test2')
-//const test3 = document.getElementById('test3')
-//const test4 = document.getElementById('test4')
-//const test5 = document.getElementById('test5')
-//const test6 = document.getElementById('test6')
-//const test7 = document.getElementById('test7')
-//const test8 = document.getElementById('test8')
-//const test9 = document.getElementById('test9')
-//const testpoint = document.getElementById('testpoint')
 const testequal = document.getElementById('testequal')
 const testAC = document.getElementById('testAC')
 const testborrar = document.getElementById('testborrar')
@@ -40,11 +29,21 @@ testequal.onclick = () => {
   display.innerHTML = eval(display.innerHTML);
   }
 testAC.onclick = () => {
-  display.innerHTML = "";
+  display.innerHTML = "0";
   }
 testborrar.onclick = () => {
-  console.log("Yo borraré");
+  if (display.innerHTML == "0"){
+    null;
+  }else{
+    var texto = display.innerHTML;
+    if (texto.length == 1) {
+      display.innerHTML = "0";
+    }else{
+      texto = texto.substring(0, texto.length - 1);
+      display.innerHTML = texto;
+    }
   }
+}
 testmult.onclick = () => {
   display.innerHTML += testmult.value;
   }

@@ -11,10 +11,9 @@ p{
   padding: 15px;
 }
 body{
+  width: 425px;
   border: solid;
-  margin: 10px;
 }
 #color{
   background-color: green;
-
 }
