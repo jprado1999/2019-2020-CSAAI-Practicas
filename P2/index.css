@@ -1,19 +1,24 @@
 button{
+  border: solid blue;
+  border-radius: 20px;
   background-color: yellow;
-  margin: 10px;
-  width: 60px;
-  height: 60px;
+  margin: 12px;
+  width: 55px;
+  height: 55px;
 }
 p{
   background-color: cyan;
   border: solid;
+  border-radius: 25px;
   margin: 10px;
   padding: 15px;
 }
 body{
   width: 425px;
   border: solid;
+  border-radius: 25px;
 }
 #color{
-  background-color: green;
+  background-color: #00FF74;
+  border-radius: 25px;
 }
