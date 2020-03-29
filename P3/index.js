@@ -170,6 +170,9 @@ function animacion() {
 
   //-- Dibujar el nuevo frame
   draw();
+
+ window.requestAnimationFrame(animacion);
+
 }
 
 //-- Inicializa la bola: Llevarla a su posicion inicial
@@ -185,9 +188,7 @@ raqD.y_ini = 300;
 raqD.init();
 
 //-- Arrancar la animación
-setInterval(()=>{
-  animacion();
-},16);
+animacion();
 
 //-- Retrollamada de las teclas
 window.onkeydown = (e) => {
@@ -222,8 +223,8 @@ window.onkeydown = (e) => {
       bola.init();
 
       //-- Darle velocidad
-      bola.vx = bola.vx_ini;
-      bola.vy = bola.vy_ini;
+      bola.vx = Math.round(Math.random()*(7-1)+parseInt(1));
+      bola.vy = Math.round(Math.random()*(6-1)+parseInt(1));
 
       //-- Cambiar al estado de jugando!
       estado = ESTADO.JUGANDO;
@@ -263,6 +264,8 @@ stop.onclick = () => {
   estado = ESTADO.INIT;
   points1 = 0;
   points2 = 0;
+  raqI.init();
+  raqD.init();
   console.log("Volvemos al estado init");
   bola.init();
   start.disabled = false;
