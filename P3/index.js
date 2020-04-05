@@ -133,19 +133,17 @@ function animacion() {
     sonido_rebote.currentTime = 0;
     sonido_rebote.play();
   }
-  //-- Si llega al límite izquierdo, hemos perdido
-  //-- pasamos al estado de SAQUE
-  /*if (bola.x <= bola.size) {
-    estado = ESTADO.SAQUE;
-    bola.init();
-    console.log("Tanto!!!!");
-    return;
-  }*/
+
   //-- Comprobar si hay colisión con la raqueta izquierda
   if (bola.x >= raqI.x && bola.x <=(raqI.x + raqI.width) &&
       bola.y >= raqI.y && bola.y <=(raqI.y + raqI.height)) {
-    bola.vx = bola.vx * -1;
-    bola.vy = bola.vy * -1;
+      if (raqI.v > 0) {
+        bola.vx = bola.vx * -1.5;
+        bola.vy = bola.vy * -1.5;
+      } else{
+          bola.vx = bola.vx * -1;
+          bola.vy = bola.vy * -1;
+        }
     //-- Reproducir sonido
     sonido_raqueta.currentTime = 0;
     sonido_raqueta.play();
@@ -154,8 +152,13 @@ function animacion() {
   //-- Comprobar si hay colisión con la raqueta derecha
   if (bola.x >= raqD.x && bola.x <=(raqD.x + raqD.width) &&
       bola.y >= raqD.y && bola.y <=(raqD.y + raqD.height)) {
-    bola.vx = bola.vx * -1;
-    bola.vy = bola.vy * -1;
+      if (raqD.v > 0) {
+        bola.vx = bola.vx * -1.5;
+        bola.vy = bola.vy * -1.5;
+      } else{
+          bola.vx = bola.vx * -1;
+          bola.vy = bola.vy * -1;
+        }
     //-- Reproducir sonido
     sonido_raqueta.currentTime = 0;
     sonido_raqueta.play();
@@ -201,15 +204,31 @@ window.onkeydown = (e) => {
   switch (e.key) {
     case "a":
       raqI.v = raqI.v_ini;
+      if (raqI.y >= canvas.height - 40) {
+        raqI.y = 360;
+        raqI.v = 0;
+      }
       break;
     case "q":
       raqI.v = raqI.v_ini * -1;
+      if(raqI.y <= canvas.height - canvas.height) {
+        raqI.y = 0;
+        raqI.v = 0;
+      }
       break;
     case "p":
       raqD.v = raqD.v_ini * -1;
+      if(raqD.y <= canvas.height - canvas.height) {
+        raqD.y = 0;
+        raqD.v = 0;
+      }
       break;
     case "l":
       raqD.v = raqD.v_ini;
+      if (raqD.y >= canvas.height - 40) {
+        raqD.y = 360;
+        raqD.v = 0;
+      }
       break;
     case "s":
 
@@ -228,7 +247,6 @@ window.onkeydown = (e) => {
 
       //-- Cambiar al estado de jugando!
       estado = ESTADO.JUGANDO;
-
       return false;
     }
     default:
