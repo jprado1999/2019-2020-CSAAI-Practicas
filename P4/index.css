@@ -1,0 +1,47 @@
+#video_master{
+  padding-left: 210px;
+}
+#play{
+  margin-left: 65px;
+  margin-right: 75px;
+  margin-top: 10px;
+  border: solid red;
+  border-radius: 20px;
+}
+
+#play2{
+  margin-left: 70px;
+  margin-right: 75px;
+  margin-top: 10px;
+  border: solid green;
+  border-radius: 20px;
+}
+
+#play3{
+  margin-left: 65px;
+  margin-right: 75px;
+  margin-top: 10px;
+  border: solid blue;
+  border-radius: 20px;
+}
+
+#play4{
+  margin-left: 55px;
+  margin-right: 60px;
+  margin-top: 10px;
+  border: solid yellow;
+  border-radius: 20px;
+}
+
+h1{
+  padding-left: 290px;
+}
+
+h2{
+  padding-left: 50px;
+}
+
+body{
+  width: 880px;
+  border: solid;
+}

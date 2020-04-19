@@ -21,17 +21,20 @@ video_master.width=400;  //-- Tamaño de la pantalla de video
 video_master.height=200;
 
 const video1 = document.getElementById("video1")
-video1.width=200;  //-- Tamaño de la pantalla de video
+video1.width=200;
 video1.height=100;
 
 const video2 = document.getElementById("video2")
-video2.width=200;  //-- Tamaño de la pantalla de video
+video2.width=200;
 video2.height=100;
 
 const video3 = document.getElementById("video3")
-video3.width=200;  //-- Tamaño de la pantalla de video
+video3.width=200;
 video3.height=100;
 
+const image = document.getElementById("img")
+image.width=200;
+image.height=100;
 //-- Imagen estática a mostrar cuando el video no
 //-- ha arrancado
 video_master.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
@@ -46,6 +49,8 @@ const play = document.getElementById("play");
 const play2 = document.getElementById("play2");
 
 const play3 = document.getElementById("play3");
+
+const play4 = document.getElementById("play4");
 
 video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
 video1.play();
@@ -157,4 +162,9 @@ play3.onclick = () => {
   video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
   video2.play();
   video2.muted = true;*/
+};
+
+play4.onclick = () => {
+  console.log("Visualizando canal 4");
+  video_master.src = "https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
 };
