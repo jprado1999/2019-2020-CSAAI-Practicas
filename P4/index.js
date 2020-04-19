@@ -1,5 +1,20 @@
 console.log("Ejecutando JS...");
 
+//----- Funcion que recupera el index.css para modificarlo
+var video1border = false;
+var video2border = false;
+var video3border = false;
+
+function getStyleSheet() {
+	for(var i=0; i<document.styleSheets.length; i++) {
+		var sheet = document.styleSheets[i];
+		if(sheet.title == 'css') {
+      console.log("Lo tengo");
+			return sheet;
+		}
+	}
+}
+
 //----- Obtener elemento de video y configurarlo
 const video_master = document.getElementById("video_master")
 video_master.width=400;  //-- Tamaño de la pantalla de video
@@ -26,85 +41,120 @@ video3.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/
 
 //-- Obtener los botones
 
-const play = document.getElementById("play")
-const stop = document.getElementById("stop")
+const play = document.getElementById("play");
 
-const play2 = document.getElementById("play2")
-const stop2 = document.getElementById("stop2")
+const play2 = document.getElementById("play2");
 
-const play3 = document.getElementById("play3")
-const stop3 = document.getElementById("stop3")
+const play3 = document.getElementById("play3");
 
-video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
+video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
 video1.play();
 video1.muted = true;
 
-video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4"
+video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
 video2.play();
 video2.muted = true;
 
-video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4"
+video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
 video3.play();
 video3.muted = true;
 
 //-- Función de retrollamada del botón de ver
 play.onclick = () => {
-  console.log("Click!");
-  video_master.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
+  console.log("Visualizando canal 1");
+  video_master.src = video1.src;
+  video_master.currentTime = video1.currentTime;
   video_master.play();
 
-  video1.pause();
+  var rule_sheet = getStyleSheet();
+  function changeText() {
+  	if(video1border == false) {
+  		rule_sheet.insertRule("#video1 {border: solid;}", 0);
+      console.log("Añadido");
+  	}
+  	video1border = true;
+  }
+  function resetText() {
+	   if(video2border || video3border) {
+		     rule_sheet.deleteRule(1,2);
+	      }
+	       video2border = false;
+         video3border = false;
+        }
+  //video1.pause();
+  //video1.src = "https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
 
-  //-- Quitar la fuente de video, para que se muestre la
-  //-- imagen definida en el atributo poster
-  video1.src="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";;
+  /*video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
+  video2.play();
+  video2.muted = true;
+
+  video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
+  video3.play();
+  video3.muted = true;*/
 };
 
 play2.onclick = () => {
-  console.log("Click!");
-  video_master.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4"
+  console.log("Visualizando canal 2");
+  video_master.src = video2.src;
+  video_master.currentTime = video2.currentTime;
   video_master.play();
 
-  video2.pause();
-  video2.src="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";;
+  var rule_sheet = getStyleSheet();
+  function changeText() {
+   if(!video2border) {
+     rule_sheet.insertRule("#video2 {border: solid;}", 1);
+     console.log("Añadido");
+   }
+   video2border = true;
+  }
+  function resetText() {
+    if(video1border || video3border) {
+        rule_sheet.deleteRule(0,2);
+       }
+        video1border = false;
+        video3border = false;
+        }
+  //video2.pause();
+  //video2.src = "https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
+
+  /*video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+  video1.play();
+  video1.muted = true;
+
+  video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
+  video3.play();
+  video3.muted = true;*/
 };
 
 play3.onclick = () => {
-  console.log("Click!");
-  video_master.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4"
+  console.log("Visualizando canal 3");
+  video_master.src = video3.src;
+  video_master.currentTime = video3.currentTime;
   video_master.play();
 
-  video3.pause();
-  video3.src="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";;
-};
-//-- Funcion de retrollamada del boton de parar
-stop.onclick = () => {
-  video_master.pause();
-  video_master.src="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";;
-  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
+  var rule_sheet = getStyleSheet();
+  function changeText() {
+    if(!video3border) {
+      rule_sheet.insertRule("#video3 {border: solid;}", 2);
+      console.log("Añadido");
+    }
+    video3border = true;
+  }
+  function resetText() {
+     if(video1border || video2border) {
+         rule_sheet.deleteRule(0,1);
+        }
+         video1border = false;
+         video2border = false;
+        }
+  //video3.pause();
+  //video3.src = "https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
+
+  /*video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
   video1.play();
   video1.muted = true;
-}
 
-stop2.onclick = () => {
-  video_master.pause();
-  video_master.src="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";;
-  video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4"
+  video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
   video2.play();
-  video2.muted = true;
-}
-
-stop3.onclick = () => {
-  video_master.pause();
-  video_master.src="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";;
-  video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4"
-  video3.play();
-  video3.muted = true;
-}
-/*Meter los comandos para que de base se esten reproduciendo los tres videos en la parte de abajo
-video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
-video1.play();
-sacando estas dos lineas de cada bucle ya que al darle a play deberia empezar a reproducirse arriba y
-mostrar la señal de test correspondiente abajo (como cuando lo paramos), al darle a stop deberia de parar
-el video arriba y volver a empezar abajo
-Me espero para hacer esto hasta la proxima sesion para adaptarlo a los cambios que introduzcamos*/
+  video2.muted = true;*/
+};
