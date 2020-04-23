@@ -16,31 +16,28 @@ function getStyleSheet() {
 }
 
 //----- Obtener elemento de video y configurarlo
-const video_master = document.getElementById("video_master")
+const video_master = document.getElementById("video_master");
 video_master.width=400;  //-- Tamaño de la pantalla de video
 video_master.height=200;
 
-const video1 = document.getElementById("video1")
+const video1 = document.getElementById("video1");
 video1.width=200;
 video1.height=100;
 
-const video2 = document.getElementById("video2")
+const video2 = document.getElementById("video2");
 video2.width=200;
 video2.height=100;
 
-const video3 = document.getElementById("video3")
+const video3 = document.getElementById("video3");
 video3.width=200;
 video3.height=100;
 
-const image = document.getElementById("img")
+const image = document.getElementById("img");
 image.width=200;
 image.height=100;
 //-- Imagen estática a mostrar cuando el video no
 //-- ha arrancado
-video_master.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
-video1.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
-video2.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
-video3.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
+video_master.poster="https://mmedia.uv.es/display?c=asamar4&name=enpruebas.jpg&path=/";
 
 //-- Obtener los botones
 
@@ -70,7 +67,7 @@ play.onclick = () => {
   video_master.src = video1.src;
   video_master.currentTime = video1.currentTime;
   video_master.play();
-
+	
   var rule_sheet = getStyleSheet();
   function changeText() {
   	if(video1border == false) {
@@ -86,16 +83,6 @@ play.onclick = () => {
 	       video2border = false;
          video3border = false;
         }
-  //video1.pause();
-  //video1.src = "https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
-
-  /*video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
-  video2.play();
-  video2.muted = true;
-
-  video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
-  video3.play();
-  video3.muted = true;*/
 };
 
 play2.onclick = () => {
@@ -119,16 +106,6 @@ play2.onclick = () => {
         video1border = false;
         video3border = false;
         }
-  //video2.pause();
-  //video2.src = "https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
-
-  /*video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
-  video1.play();
-  video1.muted = true;
-
-  video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
-  video3.play();
-  video3.muted = true;*/
 };
 
 play3.onclick = () => {
@@ -152,19 +129,9 @@ play3.onclick = () => {
          video1border = false;
          video2border = false;
         }
-  //video3.pause();
-  //video3.src = "https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
-
-  /*video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
-  video1.play();
-  video1.muted = true;
-
-  video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
-  video2.play();
-  video2.muted = true;*/
 };
 
 play4.onclick = () => {
   console.log("Visualizando canal 4");
-  video_master.src = "https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
+  video_master.src = video_master.poster;
 };
