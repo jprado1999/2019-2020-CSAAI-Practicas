@@ -1,20 +1,5 @@
 console.log("Ejecutando JS...");
 
-//----- Funcion que recupera el index.css para modificarlo
-var video1border = false;
-var video2border = false;
-var video3border = false;
-
-function getStyleSheet() {
-	for(var i=0; i<document.styleSheets.length; i++) {
-		var sheet = document.styleSheets[i];
-		if(sheet.title == 'css') {
-      console.log("Lo tengo");
-			return sheet;
-		}
-	}
-}
-
 //----- Obtener elemento de video y configurarlo
 const video_master = document.getElementById("video_master");
 video_master.width=400;  //-- Tamaño de la pantalla de video
@@ -35,6 +20,7 @@ video3.height=100;
 const image = document.getElementById("img");
 image.width=200;
 image.height=100;
+
 //-- Imagen estática a mostrar cuando el video no
 //-- ha arrancado
 video_master.poster="https://mmedia.uv.es/display?c=asamar4&name=enpruebas.jpg&path=/";
@@ -67,22 +53,11 @@ play.onclick = () => {
   video_master.src = video1.src;
   video_master.currentTime = video1.currentTime;
   video_master.play();
-	
-  var rule_sheet = getStyleSheet();
-  function changeText() {
-  	if(video1border == false) {
-  		rule_sheet.insertRule("#video1 {border: solid;}", 0);
-      console.log("Añadido");
-  	}
-  	video1border = true;
-  }
-  function resetText() {
-	   if(video2border || video3border) {
-		     rule_sheet.deleteRule(1,2);
-	      }
-	       video2border = false;
-         video3border = false;
-        }
+
+	video1.style.border = "medium solid #ff3300";
+	video2.style.border = "initial";
+	video3.style.border = "initial";
+	image.style.border = "initial";
 };
 
 play2.onclick = () => {
@@ -91,21 +66,10 @@ play2.onclick = () => {
   video_master.currentTime = video2.currentTime;
   video_master.play();
 
-  var rule_sheet = getStyleSheet();
-  function changeText() {
-   if(!video2border) {
-     rule_sheet.insertRule("#video2 {border: solid;}", 1);
-     console.log("Añadido");
-   }
-   video2border = true;
-  }
-  function resetText() {
-    if(video1border || video3border) {
-        rule_sheet.deleteRule(0,2);
-       }
-        video1border = false;
-        video3border = false;
-        }
+	video1.style.border = "initial";
+	video2.style.border = "medium solid #267326";
+	video3.style.border = "initial";
+	image.style.border = "initial";
 };
 
 play3.onclick = () => {
@@ -114,24 +78,18 @@ play3.onclick = () => {
   video_master.currentTime = video3.currentTime;
   video_master.play();
 
-  var rule_sheet = getStyleSheet();
-  function changeText() {
-    if(!video3border) {
-      rule_sheet.insertRule("#video3 {border: solid;}", 2);
-      console.log("Añadido");
-    }
-    video3border = true;
-  }
-  function resetText() {
-     if(video1border || video2border) {
-         rule_sheet.deleteRule(0,1);
-        }
-         video1border = false;
-         video2border = false;
-        }
+	video1.style.border = "initial";
+	video2.style.border = "initial";
+	video3.style.border = "medium solid #0000FF";
+	image.style.border = "initial";
 };
 
 play4.onclick = () => {
   console.log("Visualizando canal 4");
   video_master.src = video_master.poster;
+
+	video1.style.border = "initial";
+	video2.style.border = "initial";
+	video3.style.border = "initial";
+	image.style.border = "medium solid #ffff00";
 };
