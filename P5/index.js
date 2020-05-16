@@ -7,6 +7,10 @@ const ctx = canvas.getContext('2d');
 let imgData;
 let data;
 
+//-- Obtener los botones
+const grises = document.getElementById('grises');
+const blackandwhite = document.getElementById('B&W');
+
 //-- Acceso al deslizador
 const deslizador_R = document.getElementById('deslizador_R');
 const deslizador_G = document.getElementById('deslizador_G');
@@ -85,4 +89,60 @@ deslizador_B.oninput = () => {
   deslizadores();
 }
 
+function gris () {
+  //-- Obtener la imagen del canvas en pixeles
+  imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  //-- Obtener el array con todos los píxeles
+  data = imgData.data;
+
+  for (let i = 0; i < data.length; i+=4) {
+    var r = data[i];
+    var g = data [i + 1];
+    var b = data [i + 2];
+    var brillo = (3 * r + 4 * g + b)/8;
+
+    //-- Guardamos los nuevos valores de brillo
+    brillo = data[i] = data[i + 1] = data[i + 2];
+  }
+
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData, 0, 0);
+}
+
+grises.onclick = () => {
+  gris();
+}
+
+blackandwhite.onclick = () => {
+
+  //-- Obtener la imagen del canvas en pixeles
+  imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  //-- Obtener el array con todos los píxeles
+  data = imgData.data;
+
+  //--Variables
+  var pixel = imgData.data;
+  var umbral = 120;
+  var nuevaImagen = 0;
+
+  for (let i = 0; i < data.length; i+=4) {
+
+    pixel = data[i];
+
+    if (pixel > umbral) {
+        nuevaImagen = 255;
+    } else {
+        nuevaImagen = 0;
+    }
+
+    data[i] = nuevaImagen;
+    data[i + 1] = nuevaImagen;
+    data[i + 2] = nuevaImagen;
+  }
+
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData, 0, 0);
+}
 console.log("Fin...");
