@@ -1,5 +1,10 @@
+body{
+  background-image: url(madera.jpg);
+}
+
 #imagesrc {
   border: solid;
+  color: #F180E2;
 }
 
 #izq{
@@ -18,32 +23,67 @@
 
 #canvas{
   border: solid;
+  color: #F180E2;
+}
+
+#botones{
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 #grises{
   width: 70px;
   height: 30px;
   margin-left: 127px;
+  border: solid blue;
+  border-radius: 20px;
 }
 
 #ByW{
   width: 70px;
   height: 30px;
   margin-left: 255px;
+  border: solid blue;
+  border-radius: 20px;
 }
 
 #especular{
   width: 75px;
   height: 30px;
   margin-left: 255px;
+  border: solid blue;
+  border-radius: 20px;
 }
 
 #bocabajo{
   width: 90px;
   height: 30px;
   margin-left: 255px;
+  border: solid blue;
+  border-radius: 20px;
 }
 
 #deslizadores{
   margin-left: 325px;
+}
+
+h1{
+  margin-left: 190px;
+  color: purple;
+}
+
+span{
+  margin-right: 20px;
+}
+
+#red{
+  color: red;
+}
+
+#green{
+  color: green;
+}
+
+#blue{
+  color: blue;
 }

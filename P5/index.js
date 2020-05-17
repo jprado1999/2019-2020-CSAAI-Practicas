@@ -10,6 +10,8 @@ let data;
 //-- Obtener los botones
 const grises = document.getElementById('grises');
 const blackandwhite = document.getElementById('ByW');
+const especular = document.getElementById('especular');
+const bocabajo = document.getElementById('bocabajo');
 
 //-- Acceso al deslizador
 const deslizador_R = document.getElementById('deslizador_R');
@@ -61,6 +63,7 @@ function deslizadores () {
   range_value_G.innerHTML = deslizador_G.value;
   range_value_B.innerHTML = deslizador_B.value;
 
+  //-- Bucles que recorren los array data y cambian los valores de los pixeles
   for (let i = 0; i < data.length; i+=4) {
     if (data[i] > umbral_R)
       data[i] = umbral_R;
@@ -96,6 +99,7 @@ function gris () {
   //-- Obtener el array con todos los píxeles
   data = imgData.data;
 
+  //-- Bucle que recorre el array data y deja la imagen en escala de grises
   for (let i = 0; i < data.length; i+=4) {
     var r = data[i];
     var g = data [i + 1];
@@ -126,13 +130,16 @@ blackandwhite.onclick = () => {
 
   //--Variables
   var pixel = imgData.data;
-  var umbral = 120;
+  var umbral = 110;
   var nuevaImagen = 0;
 
+  //-- Bucle para umbralizar la imagen
   for (let i = 0; i < data.length; i+=4) {
 
     pixel = data[i];
 
+    //-- Si el valor guardado en 'pixel' es mayor que el umbral decidido
+    //-- lo ponemos a intensidad maxima y si no, a intensidad minima
     if (pixel > umbral) {
         nuevaImagen = 255;
     } else {
@@ -147,4 +154,21 @@ blackandwhite.onclick = () => {
   //-- Poner la imagen modificada en el canvas
   ctx.putImageData(imgData, 0, 0);
 }
+
+especular.onclick = () => {
+  //-- 'Movemos la imagen' una distancia igual a su anchura hacia la derecha
+  ctx.translate(img.width,0);
+  //-- E invertimos el eje vertical
+  ctx.scale(-1,1);
+  ctx.drawImage(img, 0, 0);
+}
+
+bocabajo.onclick = () => {
+  //-- 'Movemos la imagen' una distancia igual a su altura hacia la abajo
+  ctx.translate(0,img.height);
+  //-- E invertimos el eje horizontal
+  ctx.scale(1,-1);
+  ctx.drawImage(img, 0, 0);
+}
+
 console.log("Fin...");
