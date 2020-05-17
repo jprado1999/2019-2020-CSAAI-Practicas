@@ -8,3 +8,5 @@ En esta práctica, además de los apartados obligatorios (cambiar los distintos 
 
 En cuanto a su funcionamiento, el botón 'grises' pone la imagen en gris en cualquier momento en el que sea pulsado, el botón 'B&W' es mejor pulsarlo cuando la imagen está en escala de grises, puesto que en otro caso tomará como referencia únicamente el canal azul por la forma en la que está programado este modo. Los botones 'especular' y 'boca abajo' se pueden pulsar en cualquier momento y harán sus respectivas funciones.
 En cuanto a los deslizadores, éstos están programados para que cuando los muevas estando en imagen de grises o B&W reseteen la acción de dichos botones antes de aplicar los cambios de color, en cualquier otra situación, mantendrán los cambios hechos en la imagen además de añadir el filtro de color.
+
+Nota: si por alguna razón al cargar la página aparece el canvas en pequeñito debe ser error del navegador, al cargarla de nuevo sin darle al botón de refrescar debería aparecer bien.
