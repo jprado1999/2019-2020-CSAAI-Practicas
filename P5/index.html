@@ -7,20 +7,36 @@
     <script src="index.js" defer></script>
   </head>
   <body>
-    <p>Imagen original</p>
-    <img src="FPGA.jpg" id="imagesrc">
-    <p>Imagen manipulada</p>
-    <canvas id="canvas"></canvas>
-    <button id="grises">Grises</button>
-    <button id="B&W">B&W</button>
-    <p>Establece el umbral de rojo:</p>
-    <input type="range" id="deslizador_R" min="0" max="255" value="255"/>
-    <p id="range_value_R">00</p>
-    <p>Establece el umbral de verde:</p>
-    <input type="range" id="deslizador_G" min="0" max="255" value="255"/>
-    <p id="range_value_G">00</p>
-    <p>Establece el umbral de azul:</p>
-    <input type="range" id="deslizador_B" min="0" max="255" value="255"/>
-    <p id="range_value_B">00</p>
+    <div id="images">
+      <div id="izq">
+        <p>Imagen original</p>
+        <img src="FPGA.jpg" id="imagesrc">
+      </div>
+      <div id="der">
+        <p>Imagen manipulada</p>
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+    <br>
+    <div id="botones">
+      <span>
+        <button id="grises">Grises</button>
+        <button id="ByW">B&W</button>
+        <button id="especular">Especular</button>
+        <button id="bocabajo">Boca abajo</button>
+      </span>
+    </div>
+    <br>
+    <div id="deslizadores">
+      <span>Rojo:</span>
+      <input type="range" id="deslizador_R" min="0" max="255" value="255"/>
+      <span id="range_value_R">255</span>
+      <span>Verde:</span>
+      <input type="range" id="deslizador_G" min="0" max="255" value="255"/>
+      <span id="range_value_G">255</span>
+      <span>Azul:</span>
+      <input type="range" id="deslizador_B" min="0" max="255" value="255"/>
+      <span id="range_value_B">255</span>
+    </div>
   </body>
 </html>

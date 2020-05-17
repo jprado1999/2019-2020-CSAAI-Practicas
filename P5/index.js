@@ -9,7 +9,7 @@ let data;
 
 //-- Obtener los botones
 const grises = document.getElementById('grises');
-const blackandwhite = document.getElementById('B&W');
+const blackandwhite = document.getElementById('ByW');
 
 //-- Acceso al deslizador
 const deslizador_R = document.getElementById('deslizador_R');
@@ -115,6 +115,8 @@ grises.onclick = () => {
 }
 
 blackandwhite.onclick = () => {
+
+  //-- Para hacer esta funcion primero debemos haber pulsado el boton "Grises"
 
   //-- Obtener la imagen del canvas en pixeles
   imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);

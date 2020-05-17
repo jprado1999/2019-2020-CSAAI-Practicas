@@ -1,3 +1,49 @@
 #imagesrc {
-  display: none;
+  border: solid;
+}
+
+#izq{
+  float: left;
+}
+
+#der{
+  float: right;
+}
+
+#images{
+  width: 1300px;
+  height: 500px;
+  margin:auto;
+}
+
+#canvas{
+  border: solid;
+}
+
+#grises{
+  width: 70px;
+  height: 30px;
+  margin-left: 127px;
+}
+
+#ByW{
+  width: 70px;
+  height: 30px;
+  margin-left: 255px;
+}
+
+#especular{
+  width: 75px;
+  height: 30px;
+  margin-left: 255px;
+}
+
+#bocabajo{
+  width: 90px;
+  height: 30px;
+  margin-left: 255px;
+}
+
+#deslizadores{
+  margin-left: 325px;
 }
