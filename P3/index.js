@@ -34,7 +34,7 @@ function draw() {
   //----- Dibujar la Bola
   //-- Solo en el estado de jugando
   if (estado == ESTADO.JUGANDO) {
-    console.log("Estamos en estado jugando");
+    //console.log("Estamos en estado jugando");
     bola.draw();
   }
 
@@ -74,7 +74,7 @@ function draw() {
 
   //-- Dibujar el texto de sacar
   if (estado == ESTADO.SAQUE) {
-    console.log("Estamos en estado saque");
+    //console.log("Estamos en estado saque");
     ctx.font = "40px Arial";
     ctx.fillStyle = "yellow";
     ctx.fillText("Saca!", 30, 350);
@@ -82,7 +82,7 @@ function draw() {
 
   //-- Dibujar el texto de comenzar
   if (estado == ESTADO.INIT) {
-    console.log("Estamos en estado init");
+    //console.log("Estamos en estado init");
     ctx.font = "40px Arial";
     ctx.fillStyle = "green";
     ctx.fillText("Pulsa Start!", 30, 350);
