@@ -1,4 +1,4 @@
-Funcionamiento de la P5:
+# Funcionamiento de la P5: Manipulación de imágenes
 
 En esta práctica, además de los apartados obligatorios (cambiar los distintos canales de color de la imagen y ponerla en escala de grises) he implementado las siguientes funcionalidades opcionales:
 

@@ -1,4 +1,4 @@
-#Funcionamiento de la Práctica 1: CV
+# Funcionamiento de la Práctica 1: CV
 
 En esta práctica están implementadas en HTML las siguientes funciones:
 

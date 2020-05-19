@@ -1,4 +1,4 @@
-# Funcionamiento de la Práctica 3
+# Funcionamiento de la Práctica 3: Pong
 
 En esta práctica, además del funcionamiento básico del Pong he añadido unas mejoras:
 

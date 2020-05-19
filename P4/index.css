@@ -1,6 +1,7 @@
 body{
-  width: 880px;
-  border: solid;
+  width: 830px;
+  border: solid purple;
+  border-radius: 20px;
 }
 
 #video_master{
@@ -23,7 +24,7 @@ body{
 }
 
 #play3{
-  margin-left: 65px;
+  margin-left: 60px;
   margin-right: 75px;
   margin-top: 10px;
   border: solid blue;
