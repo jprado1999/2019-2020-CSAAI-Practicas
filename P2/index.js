@@ -7,6 +7,8 @@ const testmult = document.getElementById('testmult')
 const testdiv = document.getElementById('testdiv')
 const testsuma = document.getElementById('testsuma')
 const testresta = document.getElementById('testresta')
+const testsqrt = document.getElementById('testsqrt')
+const testexp = document.getElementById('testexp')
 const display = document.getElementById("display")
 
 let digito = document.getElementsByClassName("digito");
@@ -46,13 +48,24 @@ testborrar.onclick = () => {
 }
 testmult.onclick = () => {
   display.innerHTML += testmult.value;
-  }
+}
+
 testdiv.onclick = () => {
   display.innerHTML += testdiv.value;
-  }
+}
+
 testsuma.onclick = () => {
   display.innerHTML += testsuma.value;
-  }
+}
+
 testresta.onclick = () => {
   display.innerHTML += testresta.value;
-  }
+}
+
+testsqrt.onclick = () => {
+  display.innerHTML = Math.sqrt(display.innerHTML);
+}
+
+testexp.onclick = () => {
+  display.innerHTML = Math.pow(display.innerHTML, 2);
+}
